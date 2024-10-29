@@ -4,7 +4,7 @@ import { FaRegHeart } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import { FaCommentAlt } from "react-icons/fa";
 import { FaRegCommentAlt } from "react-icons/fa";
-const PostFooter = () => {
+const PostFooter = ({username, postText}) => {
     const [liked, setLiked] = useState(false)
     const [likes, setLikesCount] = useState(100)
     const handleLike = () => {
@@ -30,9 +30,9 @@ const PostFooter = () => {
         {likes} likes
       </Text>
       <Text fontSize='sm' fontWeight={700}>
-        Ermin{" "}
+        {username}{" "}
         <Text as='span' fontWeight={400}>
-            Feeling bad
+          {postText}
         </Text>
       </Text>
       <Text fontSize={"sm"} color={"gray"}>

@@ -1,13 +1,13 @@
 import { Avatar, Flex, Box, Text } from '@chakra-ui/react'
 import React from 'react'
 
-const PostHeader = () => {
+const PostHeader = ({username, avatar}) => {
   return (
     <Flex justifyContent={"space-between"} alignItems={"center"} w={"full"} my={2}>
       <Flex alignItems={"center"} gap={2}>
-        <Avatar size={"sm"} src='/2024_ermin_m.jpg' alt="user profile pic"/>
+        <Avatar size={"sm"} src={avatar} alt={username} cursor={'pointer'}/>
         <Flex fontSize={12} fontWeight={"bold"} gap={2}>
-            Ermin
+            {username}
             <Box color={"gray.500"}>• 1w</Box>
         </Flex>
       </Flex>
