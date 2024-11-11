@@ -4,7 +4,7 @@ import { FaRegHeart } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import { FaCommentAlt } from "react-icons/fa";
 import { FaRegCommentAlt } from "react-icons/fa";
-const PostFooter = ({username, postText}) => {
+const PostFooter = ({username, postText, isProfilePage}) => {
     const [liked, setLiked] = useState(false)
     const [likes, setLikesCount] = useState(100)
     const handleLike = () => {
@@ -17,7 +17,7 @@ const PostFooter = ({username, postText}) => {
         }
     }
   return (
-    <Box mb={10}>
+    <Box mb={10} mt={"auto"}>
       <Flex alignItems={"center"} gap={4} w={"full"} pt={0} mb={2} mt={4}>
         <Box onClick={handleLike} cursor={"pointer"} fontSize={18}>
             {!liked ? (<FaRegHeart size={25}/>) : (<FaHeart color='red' size={25}/>)}
@@ -29,15 +29,19 @@ const PostFooter = ({username, postText}) => {
       <Text fontSize='sm' fontWeight={600}>
         {likes} likes
       </Text>
-      <Text fontSize='sm' fontWeight={700}>
-        {username}{" "}
-        <Text as='span' fontWeight={400}>
-          {postText}
-        </Text>
-      </Text>
-      <Text fontSize={"sm"} color={"gray"}>
-        View all 100 comments
-      </Text>
+      {!isProfilePage && (
+        <>
+          <Text fontSize='sm' fontWeight={700}>
+            {username}{" "}
+            <Text as='span' fontWeight={400}>
+              {postText}
+            </Text>
+          </Text>
+          <Text fontSize={"sm"} color={"gray"}>
+            View all 100 comments
+          </Text>
+        </>
+      )}
 
       <Flex alignItems={"center"} gap={2} justifyContent={"space-between"} w={"full"}>
 					<InputGroup>
